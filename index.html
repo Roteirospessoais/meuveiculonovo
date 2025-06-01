@@ -209,6 +209,32 @@
                 height: 250px; /* Altura ajustada para mobile */
             }
         }
+
+        /* Estilo para o botão "Leia Mais..." */
+        .read-more-button {
+            background: none;
+            border: none;
+            color: #3b82f6; /* Tailwind blue-500 */
+            cursor: pointer;
+            font-weight: bold;
+            padding: 0;
+            margin-top: 8px;
+            text-decoration: underline;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .read-more-button:hover {
+            color: #2563eb; /* Tailwind blue-600 */
+        }
+
+        /* Estilo para esconder o texto */
+        .description-truncated {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Limita a 2 linhas para a descrição curta */
+            -webkit-box-orient: vertical;
+        }
     </style>
 </head>
 <body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen p-4">
@@ -232,13 +258,13 @@
             <li data-slide-to="2"></li>
         </ol>
 
-        <a class="carousel-control carousel-control-prev" role="button" data-slide="prev">
+        <a class="carousel-control carousel-control-prev js-carousel-control" role="button" data-direction="prev">
             <svg class="carousel-control-icon" viewBox="0 0 24 24">
                 <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
             </svg>
             <span class="sr-only hidden">Anterior</span>
         </a>
-        <a class="carousel-control carousel-control-next" role="button" data-slide="next">
+        <a class="carousel-control carousel-control-next js-carousel-control" role="button" data-direction="next">
             <svg class="carousel-control-icon" viewBox="0 0 24 24">
                 <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
             </svg>
@@ -264,10 +290,27 @@
         <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Nossos Veículos em Destaque</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <img src="https://placehold.co/600x400/FF0000/FFFFFF?text=Carro+Esportivo" alt="Carro Esportivo Fictício" class="w-full h-48 object-cover rounded-t-xl" />
+                <img src="https://cdn.shopcar.com.br/stored/veiculos/1747749274_29027pd.jpg" alt="https://cdn.shopcar.com.br/stored/veiculos/1747749273_92715pd.jpg" alt="https://cdn.shopcar.com.br/stored/veiculos/1747749274_77304pd.jpg" alt="https://cdn.shopcar.com.br/stored/veiculos/1747749274_89371pd.jpg" alt="https://cdn.shopcar.com.br/stored/veiculos/1747749274_77304pd.jpg" class="w-full h-48 object-cover rounded-t-xl" />
                 <div class="p-4">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Esportivo Veloz</h3>
-                    <p id="desc-esportivo" class="text-gray-600 text-sm mb-4" data-short-description="Um carro esportivo de alta performance, ideal para quem busca adrenalina e estilo. Design arrojado e motor potente.">Um carro esportivo de alta performance, ideal para quem busca adrenalina e estilo. Design arrojado e motor potente.</p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Gol Trendline 1.6 4p</h3>
+                    <p id="desc-gol-trendline" class="text-gray-600 text-sm mb-4 description-truncated" data-full-description="🚗🚨 Gol Trendline 1.6 4p. (WHATSAPP NA DESCRIÇÃO)🚨
+https://bit.ly/carroavenda-sabermais
+✅ Faço simulação 
+
+15/16
+Branca
+Flex
+Manual
+135.425 Km
+R$ 43.000,00
+
+✅Opcionais:
+•Ar Condicionado•Direção Hidráulica•Trava Elétrica•Vidro Elétrico">
+                        �🚨 Gol Trendline 1.6 4p. (WHATSAPP NA DESCRIÇÃO)🚨
+                        ✅ Faço simulação 
+                        15/16, Branca, Flex, Manual, 135.425 Km, R$ 43.000,00.
+                        ✅Opcionais: Ar Condicionado, Direção Hidráulica, Trava Elétrica, Vidro Elétrico.
+                    </p>
                     <div class="flex justify-between items-center mt-4">
                         <a href="https://wa.me/55DDDSEUNUMERO" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full text-sm flex items-center btn-animation">
                             <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -275,15 +318,15 @@
                             </svg>
                             WhatsApp
                         </a>
-                        <button onclick="shareVehicle('Esportivo Veloz', document.getElementById('desc-esportivo').innerText, 'https://placehold.co/600x400/FF0000/FFFFFF?text=Carro+Esportivo')" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full text-sm flex items-center btn-animation">
+                        <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full text-sm flex items-center btn-animation js-share-vehicle-btn" data-vehicle-title="Gol Trendline 1.6 4p" data-vehicle-image-url="Gol Trendline 1.6 4p (2).jpg" data-target-desc-id="desc-gol-trendline">
                             <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.52.47 1.2.77 1.96.77 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L7.05 11.23c-.52-.47-1.2-.77-1.96-.77-1.66 0-3 1.34-3 3s1.34 3 3 3c.76 0 1.44-.3 1.96-.77l7.05 4.11c-.05.23-.09.46-.09.7 0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3z"/>
                             </svg>
                             Compartilhar
                         </button>
                     </div>
-                     <button onclick="toggleDescription('Esportivo Veloz', 'desc-esportivo')" class="mt-4 w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full text-sm flex items-center justify-center btn-animation">
-                        Ler Mais...
+                     <button class="read-more-button js-toggle-description-btn" data-target-desc-id="desc-gol-trendline" data-vehicle-title="Gol Trendline 1.6 4p">
+                        Leia Mais...
                     </button>
                 </div>
             </div>
@@ -292,7 +335,7 @@
                 <img src="https://placehold.co/600x400/007BFF/FFFFFF?text=SUV+Familiar" alt="SUV Familiar Fictício" class="w-full h-48 object-cover rounded-t-xl" />
                 <div class="p-4">
                     <h3 class="text-xl font-bold text-gray-800 mb-2">SUV Conforto Familiar</h3>
-                    <p id="desc-suv" class="text-gray-600 text-sm mb-4" data-short-description="Espaço e segurança para toda a família. Perfeito para viagens e o dia a dia na cidade.">Espaço e segurança para toda a família. Perfeito para viagens e o dia a dia na cidade.</p>
+                    <p id="desc-suv" class="text-gray-600 text-sm mb-4 description-truncated" data-short-description="Espaço e segurança para toda a família. Perfeito para viagens e o dia a dia na cidade.">Espaço e segurança para toda a família. Perfeito para viagens e o dia a dia na cidade.</p>
                     <div class="flex justify-between items-center mt-4">
                         <a href="https://wa.me/55DDDSEUNUMERO" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full text-sm flex items-center btn-animation">
                             <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -300,15 +343,15 @@
                             </svg>
                             WhatsApp
                         </a>
-                        <button onclick="shareVehicle('SUV Conforto Familiar', document.getElementById('desc-suv').innerText, 'https://placehold.co/600x400/007BFF/FFFFFF?text=SUV+Familiar')" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full text-sm flex items-center btn-animation">
+                        <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full text-sm flex items-center btn-animation js-share-vehicle-btn" data-vehicle-title="SUV Conforto Familiar" data-vehicle-image-url="https://placehold.co/600x400/007BFF/FFFFFF?text=SUV+Familiar" data-target-desc-id="desc-suv">
                             <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.52.47 1.2.77 1.96.77 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L7.05 11.23c-.52-.47-1.2-.77-1.96-.77-1.66 0-3 1.34-3 3s1.34 3 3 3c.76 0 1.44-.3 1.96-.77l7.05 4.11c-.05.23-.09.46-.09.7 0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3z"/>
                             </svg>
                             Compartilhar
                         </button>
                     </div>
-                     <button onclick="toggleDescription('SUV Conforto Familiar', 'desc-suv')" class="mt-4 w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full text-sm flex items-center justify-center btn-animation">
-                        Ler Mais...
+                     <button class="read-more-button js-toggle-description-btn" data-target-desc-id="desc-suv" data-vehicle-title="SUV Conforto Familiar">
+                        Leia Mais...
                     </button>
                 </div>
             </div>
@@ -317,7 +360,7 @@
                 <img src="https://placehold.co/600x400/28A745/FFFFFF?text=Carro+Compacto" alt="Carro Compacto Fictício" class="w-full h-48 object-cover rounded-t-xl" />
                 <div class="p-4">
                     <h3 class="text-xl font-bold text-gray-800 mb-2">Compacto Urbano</h3>
-                    <p id="desc-compacto" class="text-gray-600 text-sm mb-4" data-short-description="Perfeito para a cidade, econômico e fácil de estacionar. Ideal para o dia a dia.">Perfeito para a cidade, econômico e fácil de estacionar. Ideal para o dia a dia.</p>
+                    <p id="desc-compacto" class="text-gray-600 text-sm mb-4 description-truncated" data-short-description="Perfeito para a cidade, econômico e fácil de estacionar. Ideal para o dia a dia.">Perfeito para a cidade, econômico e fácil de estacionar. Ideal para o dia a dia.</p>
                     <div class="flex justify-between items-center mt-4">
                         <a href="https://wa.me/55DDDSEUNUMERO" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full text-sm flex items-center btn-animation">
                             <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -325,15 +368,15 @@
                             </svg>
                             WhatsApp
                         </a>
-                        <button onclick="shareVehicle('Compacto Urbano', document.getElementById('desc-compacto').innerText, 'https://placehold.co/600x400/28A745/FFFFFF?text=Carro+Compacto')" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full text-sm flex items-center btn-animation">
+                        <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full text-sm flex items-center btn-animation js-share-vehicle-btn" data-vehicle-title="Compacto Urbano" data-vehicle-image-url="https://placehold.co/600x400/28A745/FFFFFF?text=Carro+Compacto" data-target-desc-id="desc-compacto">
                             <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.52.47 1.2.77 1.96.77 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L7.05 11.23c-.52-.47-1.2-.77-1.96-.77-1.66 0-3 1.34-3 3s1.34 3 3 3c.76 0 1.44-.3 1.96-.77l7.05 4.11c-.05.23-.09.46-.09.7 0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3z"/>
                             </svg>
                             Compartilhar
                         </button>
                     </div>
-                     <button onclick="toggleDescription('Compacto Urbano', 'desc-compacto')" class="mt-4 w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full text-sm flex items-center justify-center btn-animation">
-                        Ler Mais...
+                     <button class="read-more-button js-toggle-description-btn" data-target-desc-id="desc-compacto" data-vehicle-title="Compacto Urbano">
+                        Leia Mais...
                     </button>
                 </div>
             </div>
@@ -342,7 +385,7 @@
                 <img src="https://placehold.co/600x400/FFC107/FFFFFF?text=Picape+Robusta" alt="Picape Robusta Fictícia" class="w-full h-48 object-cover rounded-t-xl" />
                 <div class="p-4">
                     <h3 class="text-xl font-bold text-gray-800 mb-2">Picape Robusta</h3>
-                    <p id="desc-picape" class="text-gray-600 text-sm mb-4" data-short-description="Potência e capacidade para qualquer desafio. Ideal para trabalho e aventura.">Potência e capacidade para qualquer desafio. Ideal para trabalho e aventura.</p>
+                    <p id="desc-picape" class="text-gray-600 text-sm mb-4 description-truncated" data-short-description="Potência e capacidade para qualquer desafio. Ideal para trabalho e aventura.">Potência e capacidade para qualquer desafio. Ideal para trabalho e aventura.</p>
                     <div class="flex justify-between items-center mt-4">
                         <a href="https://wa.me/55DDDSEUNUMERO" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full text-sm flex items-center btn-animation">
                             <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -350,15 +393,15 @@
                             </svg>
                             WhatsApp
                         </a>
-                        <button onclick="shareVehicle('Picape Robusta', document.getElementById('desc-picape').innerText, 'https://placehold.co/600x400/FFC107/FFFFFF?text=Picape+Robusta')" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full text-sm flex items-center btn-animation">
+                        <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full text-sm flex items-center btn-animation js-share-vehicle-btn" data-vehicle-title="Picape Robusta" data-vehicle-image-url="https://placehold.co/600x400/FFC107/FFFFFF?text=Picape+Robusta" data-target-desc-id="desc-picape">
                             <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.52.47 1.2.77 1.96.77 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L7.05 11.23c-.52-.47-1.2-.77-1.96-.77-1.66 0-3 1.34-3 3s1.34 3 3 3c.76 0 1.44-.3 1.96-.77l7.05 4.11c-.05.23-.09.46-.09.7 0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3z"/>
                             </svg>
                             Compartilhar
                         </button>
                     </div>
-                     <button onclick="toggleDescription('Picape Robusta', 'desc-picape')" class="mt-4 w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full text-sm flex items-center justify-center btn-animation">
-                        Ler Mais...
+                     <button class="read-more-button js-toggle-description-btn" data-target-desc-id="desc-picape" data-vehicle-title="Picape Robusta">
+                        Leia Mais...
                     </button>
                 </div>
             </div>
@@ -389,21 +432,21 @@
             </div>
 
             <ol class="carousel-indicators testimonial-carousel-indicators">
-                <li data-slide-to="1" class="active"></li>
-                <li data-slide-to="2">class="active"></li>
-                <li data-slide-to="3">class="active"></li>
-                <li data-slide-to="4">class="active"></li>
-                <li data-slide-to="5">class="active"></li>
-                <li data-slide-to="6">class="active"></li>
+                <li data-slide-to="0" class="active"></li>
+                <li data-slide-to="1"></li>
+                <li data-slide-to="2"></li>
+                <li data-slide-to="3"></li>
+                <li data-slide-to="4"></li>
+                <li data-slide-to="5"></li>
             </ol>
 
-            <a class="carousel-control carousel-control-prev testimonial-carousel-control" role="button" data-slide="prev">
+            <a class class="carousel-control carousel-control-prev testimonial-carousel-control js-carousel-control" role="button" data-direction="prev">
                 <svg class="carousel-control-icon" viewBox="0 0 24 24">
                     <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
                 </svg>
                 <span class="sr-only hidden">Anterior</span>
             </a>
-            <a class="carousel-control carousel-control-next testimonial-carousel-control" role="button" data-slide="next">
+            <a class="carousel-control carousel-control-next testimonial-carousel-control js-carousel-control" role="button" data-direction="next">
                 <svg class="carousel-control-icon" viewBox="0 0 24 24">
                     <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
                 </svg>
@@ -441,3 +484,4 @@
     </div>
 </body>
 </html>
+�
