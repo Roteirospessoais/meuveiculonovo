@@ -402,7 +402,6 @@
     <div class="mt-8 max-w-4xl w-full">
         <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Nossos Veículos em Destaque</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6" id="vehicles-grid">
-            <!-- Gol Trendline 1.6 4p Carousel -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden vehicle-card" data-vehicle-id="gol-card">
                 <div class="carousel-container w-full h-48" id="gol-carousel">
                     <div class="carousel-inner">
@@ -461,7 +460,7 @@
                             •Trava Elétrica<br>
                             •Vidro Elétrico
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-gol-trendline">
                             Leia mais...
                         </button>
                     </div>
@@ -479,7 +478,6 @@
                 </div>
             </div>
 
-            <!-- 208 Active Pack 1.6 16v Carousel -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="carousel-container w-full h-48" id="peugeot-carousel">
                     <div class="carousel-inner">
@@ -553,7 +551,7 @@
                             •Volante com Regulagem<br>
                             •Volante Multifuncional.
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-208-active-pack">
                             Leia mais...
                         </button>
                     </div>
@@ -627,14 +625,13 @@
                             •Volante com Regulagem<br>
                             •Volante Multifuncional
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-c3-hatch">
                             Leia mais...
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- EcoSport Freestyle 1.6 16v Carousel (substituindo YAMAHA YS 250 Fazer) -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="carousel-container w-full h-48" id="ecosport-carousel">
                     <div class="carousel-inner">
@@ -704,7 +701,7 @@
                             •Volante com Regulagem<br>
                             •Volante Multifuncional
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-ecosport">
                             Leia mais...
                         </button>
                     </div>
@@ -785,13 +782,12 @@
     •Volante com Regulagem<br>
     •Volante Multifuncional
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-fiesta-sedan">
                             Leia mais...
                         </button>
                     </div>
                 </div>
             </div>
-            <!-- Novos 5 posts genéricos -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="carousel-container w-full h-48" id="generic-carousel-1">
                     <div class="carousel-inner">
@@ -860,7 +856,7 @@
                            •Volante com Regulagem<br>
                            •Volante Multifuncional
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-generic-1">
                             Leia mais...
                         </button>
                     </div>
@@ -928,7 +924,7 @@
                            •Direção Hidráulica<br>
                            •Som CD
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-generic-2">
                             Leia mais...
                         </button>
                     </div>
@@ -1007,7 +1003,7 @@
                             •Volante com Regulagem<br>
                             •Volante Multifuncional
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-generic-3">
                             Leia mais...
                         </button>
                     </div>
@@ -1073,7 +1069,7 @@
                            •Engate/Rabicho<br>
                            •Vidro Elétrico
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-generic-4">
                             Leia mais...
                         </button>
                     </div>
@@ -1160,7 +1156,7 @@
                            •Volante com Regulagem<br>
                            •Volante Multifuncional
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-generic-5">
                             Leia mais...
                         </button>
                     </div>
@@ -1237,7 +1233,7 @@
                            •Volante com Regulagem<br>
                            •Volante Multifuncional
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-citysedan">
                             Leia mais...
                         </button>
                     </div>
@@ -1305,7 +1301,7 @@
                            •Vidro Elétrico<br>
                            •Volante com Regulagem
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-s10rodeo">
                             Leia mais...
                         </button>
                     </div>
@@ -1385,7 +1381,7 @@
                            •Volante com Regulagem<br>
                            •Volante Multifuncional
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-creta">
                             Leia mais...
                         </button>
                     </div>
@@ -1485,7 +1481,7 @@
                            •Volante com Regulagem<br>
                            •Volante Multifuncional
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-s10ltz">
                             Leia mais...
                         </button>
                     </div>
@@ -1539,7 +1535,7 @@
                            •Sensores de Estacionamento<br>
                            •Ar Condicionado Digital
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-generic-10">
                             Leia mais...
                         </button>
                     </div>
@@ -1591,7 +1587,7 @@
                            •Quick Shifter<br>
                            •Modos de Pilotagem
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-generic-11">
                             Leia mais...
                         </button>
                     </div>
@@ -1643,7 +1639,7 @@
                            •Teto Solar Panorâmico<br>
                            •Assistente de Estacionamento Automático
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-generic-12">
                             Leia mais...
                         </button>
                     </div>
@@ -1696,7 +1692,7 @@
                            •Ar Condicionado<br>
                            •Direção Elétrica
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-generic-13">
                             Leia mais...
                         </button>
                     </div>
@@ -1749,7 +1745,113 @@
                            •Sensor de Estacionamento<br>
                            •Câmera de Ré
                         </p>
-                        <button onclick="toggleDescricao(this)" class="leia-mais-button">
+                        <button class="leia-mais-button" data-target-id="desc-generic-14">
+                            Leia mais...
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden vehicle-card" data-vehicle-id="generic-card-15">
+                <div class="carousel-container w-full h-48" id="generic-carousel-15">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://placehold.co/600x400/FF00FF/000000?text=Esportivo+8" alt="Carro Esportivo de Luxo - Imagem 1" class="carousel-image" />
+                        </div>
+                    </div>
+                    <ol class="carousel-indicators">
+                        <li data-slide-to="0" class="active"></li>
+                    </ol>
+                    <a class="carousel-control carousel-control-prev js-carousel-control" role="button" data-direction="prev" data-carousel-id="generic-carousel-15">
+                        <svg class="carousel-control-icon" viewBox="0 0 24 24">
+                            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
+                        </svg>
+                        <span class="sr-only hidden">Anterior</span>
+                    </a>
+                    <a class="carousel-control carousel-control-next js-carousel-control" role="button" data-direction="next" data-carousel-id="generic-carousel-15">
+                        <svg class="carousel-control-icon" viewBox="0 0 24 24">
+                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+                        </svg>
+                        <span class="sr-only hidden">Próximo</span>
+                    </a>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Carro Esportivo de Luxo</h3>
+                    <div class="leia-mais-container">
+                        <p id="desc-generic-15" class="text-gray-600 text-sm mb-4 leia-mais-content">
+                           ✅ Faço simulação<br>
+                           ✅Aceito seu veículo na troca.<br>
+                           ✅Faço por Financiamento parcelamos sua<br>
+                           ✅entrada em até 18x<br>
+                           ✅Garantia de até 1 ano<br><br>
+
+                           22/23<br>
+                           Azul<br>
+                           Gasolina<br>
+                           Automático<br>
+                           8.000 Km<br>
+                           R$ 350.000,00<br><br>
+
+                           ✅Opcionais:<br>
+                           •Freios de Carbono-Cerâmica<br>
+                           •Suspensão Ativa<br>
+                           •Interior em Fibra de Carbono<br>
+                           •Head-Up Display<br>
+                           •Câmera 360
+                        </p>
+                        <button class="leia-mais-button" data-target-id="desc-generic-15">
+                            Leia mais...
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden vehicle-card" data-vehicle-id="generic-card-16">
+                <div class="carousel-container w-full h-48" id="generic-carousel-16">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://placehold.co/600x400/808080/FFFFFF?text=SUV+Premium+9" alt="SUV Premium - Imagem 1" class="carousel-image" />
+                        </div>
+                    </div>
+                    <ol class="carousel-indicators">
+                        <li data-slide-to="0" class="active"></li>
+                    </ol>
+                    <a class="carousel-control carousel-control-prev js-carousel-control" role="button" data-direction="prev" data-carousel-id="generic-carousel-16">
+                        <svg class="carousel-control-icon" viewBox="0 0 24 24">
+                            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
+                        </svg>
+                        <span class="sr-only hidden">Anterior</span>
+                    </a>
+                    <a class="carousel-control carousel-control-next js-carousel-control" role="button" data-direction="next" data-carousel-id="generic-carousel-16">
+                        <svg class="carousel-control-icon" viewBox="0 0 24 24">
+                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+                        </svg>
+                        <span class="sr-only hidden">Próximo</span>
+                    </a>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">SUV Premium</h3>
+                    <div class="leia-mais-container">
+                        <p id="desc-generic-16" class="text-gray-600 text-sm mb-4 leia-mais-content">
+                           ✅ Faço simulação<br>
+                           ✅Aceito seu veículo na troca.<br>
+                           ✅Faço por Financiamento parcelamos sua<br>
+                           ✅entrada em até 18x<br>
+                           ✅Garantia de até 1 ano<br><br>
+
+                           20/21<br>
+                           Branco Perolizado<br>
+                           Diesel<br>
+                           Automático<br>
+                           40.000 Km<br>
+                           R$ 220.000,00<br><br>
+
+                           ✅Opcionais:<br>
+                           •Tração Integral<br>
+                           •Suspensão a Ar<br>
+                           •Bancos Climatizados<br>
+                           •Porta-Malas Elétrico com Sensor<br>
+                           •Som Harman Kardon
+                        </p>
+                        <button class="leia-mais-button" data-target-id="desc-generic-16">
                             Leia mais...
                         </button>
                     </div>
