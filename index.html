@@ -132,10 +132,12 @@
             width: 100%;
             height: auto; /* Altura automática para melhor adaptação */
             max-height: 250px; /* Altura máxima para o carrossel de depoimentos em telas maiores */
-            object-fit: cover;
+            object-fit: contain; /* Usar contain para não cortar as imagens */
             display: block;
             opacity: 0;
             transition: opacity 1s ease-in-out; /* Transição suave */
+            margin: 0 auto; /* Centraliza a imagem */
+            max-width: 100%;
         }
 
         .testimonial-carousel-image.active {
@@ -348,45 +350,48 @@
         .leia-mais-button:hover {
             color: #2563eb; /* Tailwind blue-600 */
         }
+
+        /* Estilos para o carrossel de depoimentos (testimonial-carousel) */
+        .testimonial-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 96px; /* w-24 */
+            height: 96px; /* h-24 */
+            border-radius: 9999px; /* rounded-full */
+            object-fit: cover;
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .testimonial-quote {
+            font-size: 1.125rem; /* text-lg */
+            font-style: italic;
+            color: #4b5563; /* text-gray-700 */
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+
+        .testimonial-cite {
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 600; /* font-semibold */
+            color: #374151; /* text-gray-600 */
+        }
+
+        .testimonial-rating {
+            color: #f59e0b; /* text-yellow-500 */
+            font-size: 1.5rem; /* text-2xl */
+            margin-top: 0.5rem; /* mt-2 */
+        }
     </style>
 </head>
 <body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen p-4">
 
-    <div class="max-w-4xl w-full bg-white rounded-xl shadow-lg overflow-hidden mb-4 carousel-container main-panel-container" id="main-carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://fundacaofapec.org.br/uploads/banner/55285/original_Banners_4_1.png" alt="Painel 1" class="carousel-image" />
-            </div>
-            <div class="carousel-item">
-                <img src="https://fundacaofapec.org.br/uploads/banner/55637/original_Banners_7___SOMOS_IBICT_MCTI_v2.png" alt="Painel 2" class="carousel-image" />
-            </div>
-            <div class="carousel-item">
-                <img src="https://fundacaofapec.org.br/uploads/banner/55284/original_Banners_3_1.png" alt="Painel 3" class="carousel-image" />
-            </div>
-            <div class="carousel-item">
-                <img src="https://fundacaofapec.org.br/uploads/banner/55286/original_Banners_2_1.png" alt="Painel 4" class="carousel-image" />
-            </div>
-        </div>
-
-        <ol class="carousel-indicators">
-            <li data-slide-to="0" class="active"></li>
-            <li data-slide-to="1"></li>
-            <li data-slide-to="2"></li>
-            <li data-slide-to="3"></li>
-        </ol>
-
-        <a class="carousel-control carousel-control-prev js-carousel-control" role="button" data-direction="prev" data-carousel-id="main-carousel">
-            <svg class="carousel-control-icon" viewBox="0 0 24 24">
-                <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
-            </svg>
-            <span class="sr-only hidden">Anterior</span>
-        </a>
-        <a class="carousel-control carousel-control-next js-carousel-control" role="button" data-direction="next" data-carousel-id="main-carousel">
-            <svg class="carousel-control-icon" viewBox="0 0 24 24">
-                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
-            </svg>
-            <span class="sr-only hidden">Próximo</span>
-        </a>
+    <div class="max-w-4xl w-full bg-white rounded-xl shadow-lg overflow-hidden mb-4 main-panel-container" id="main-banner-static">
+        <img src="https://painel.shopcar.com.br/stored/veiculos/1743693585_25718.jpg" alt="Financie seu veículo aqui!" class="w-full h-full object-cover" />
     </div>
 
     <div class="max-w-4xl w-full bg-white rounded-xl shadow-lg overflow-hidden flex flex-col justify-center items-center text-center p-4 mb-4 relative">
@@ -471,7 +476,7 @@
                 </div>
             </div>
 
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden vehicle-card" data-vehicle-id="peugeot-card">
                 <div class="carousel-container w-full h-48" id="peugeot-carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -1156,7 +1161,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Novos 4 posts genéricos -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden vehicle-card" data-vehicle-id="citysedan-card">
                 <div class="carousel-container w-full h-48" id="citysedan-carousel">
                     <div class="carousel-inner">
@@ -1929,11 +1933,23 @@
                 <div class="carousel-container w-full h-48" id="generic-carousel-14">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="https://placehold.co/600x400/FFA500/000000?text=Van+Passageiros+7" alt="Van de Passageiros - Imagem 1" class="carousel-image" />
+                            <img src="https://cdn.shopcar.com.br/stored/veiculos/1749577384_83897.jpg" alt="Strada Hard Working 1.4 C.S. - Imagem 1" class="carousel-image" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://cdn.shopcar.com.br/stored/veiculos/1749577385_20417.jpg" alt="Strada Hard Working 1.4 C.S. - Imagem 2" class="carousel-image" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://cdn.shopcar.com.br/stored/veiculos/1749577385_59477.jpg" alt="Strada Hard Working 1.4 C.S. - Imagem 3" class="carousel-image" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://cdn.shopcar.com.br/stored/veiculos/1749577385_71493.jpg" alt="Strada Hard Working 1.4 C.S. - Imagem 4" class="carousel-image" />
                         </div>
                     </div>
                     <ol class="carousel-indicators">
                         <li data-slide-to="0" class="active"></li>
+                        <li data-slide-to="1"></li>
+                        <li data-slide-to="2"></li>
+                        <li data-slide-to="3"></li>
                     </ol>
                     <a class="carousel-control carousel-control-prev js-carousel-control" role="button" data-direction="prev" data-carousel-id="generic-carousel-14">
                         <svg class="carousel-control-icon" viewBox="0 0 24 24">
@@ -1949,7 +1965,7 @@
                     </a>
                 </div>
                 <div class="p-4">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Van de Passageiros</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Strada Hard Working 1.4 C.S.</h3>
                     <div class="leia-mais-container">
                         <p id="desc-generic-14" class="text-gray-600 text-sm mb-4 leia-mais-content">
                            ✅ Faço simulação<br>
@@ -1958,19 +1974,22 @@
                            ✅entrada em até 18x<br>
                            ✅Garantia de até 1 ano<br><br>
 
-                           18/19<br>
+                           18/18<br>
                            Branca<br>
-                           Diesel<br>
+                           Flex<br>
                            Manual<br>
-                           90.000 Km<br>
-                           R$ 130.000,00<br><br>
+                           98.000 Km<br>
+                           R$ 55.000,00<br><br>
 
                            ✅Opcionais:<br>
-                           •15 lugares<br>
-                           •Ar Condicionado Individual<br>
-                           •Porta Lateral Elétrica<br>
-                           •Sensor de Estacionamento<br>
-                           •Câmera de Ré
+                           •Air Bag<br>
+                           •Ar Condicionado<br>
+                           •Computador de Bordo<br>
+                           •Direção Hidráulica<br>
+                           •Freios ABS<br>
+                           •Protetor de Caçamba<br>
+                           •Trava Elétrica<br>
+                           •Vidro Elétrico
                         </p>
                         <button class="leia-mais-button" data-target-id="desc-generic-14">
                             Leia mais...
@@ -1982,11 +2001,27 @@
                 <div class="carousel-container w-full h-48" id="generic-carousel-15">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="https://placehold.co/600x400/FF00FF/000000?text=Esportivo+8" alt="Carro Esportivo de Luxo - Imagem 1" class="carousel-image" />
+                            <img src="https://cdn.shopcar.com.br/stored/veiculos/1749646892_68224.jpg" alt="Up! Xtreme 1.0 12v TSi 4p. - Imagem 1" class="carousel-image" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://cdn.shopcar.com.br/stored/veiculos/1749646893_09862.jpg" alt="Up! Xtreme 1.0 12v TSi 4p. - Imagem 2" class="carousel-image" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://cdn.shopcar.com.br/stored/veiculos/1749646893_24278.jpg" alt="Up! Xtreme 1.0 12v TSi 4p. - Imagem 3" class="carousel-image" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://cdn.shopcar.com.br/stored/veiculos/1749646893_77530.jpg" alt="Up! Xtreme 1.0 12v TSi 4p. - Imagem 4" class="carousel-image" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://cdn.shopcar.com.br/stored/veiculos/1749646893_90447.jpg" alt="Up! Xtreme 1.0 12v TSi 4p. - Imagem 5" class="carousel-image" />
                         </div>
                     </div>
                     <ol class="carousel-indicators">
                         <li data-slide-to="0" class="active"></li>
+                        <li data-slide-to="1"></li>
+                        <li data-slide-to="2"></li>
+                        <li data-slide-to="3"></li>
+                        <li data-slide-to="4"></li>
                     </ol>
                     <a class="carousel-control carousel-control-prev js-carousel-control" role="button" data-direction="prev" data-carousel-id="generic-carousel-15">
                         <svg class="carousel-control-icon" viewBox="0 0 24 24">
@@ -2002,7 +2037,7 @@
                     </a>
                 </div>
                 <div class="p-4">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Carro Esportivo de Luxo</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Up! Xtreme 1.0 12v TSi 4p.</h3>
                     <div class="leia-mais-container">
                         <p id="desc-generic-15" class="text-gray-600 text-sm mb-4 leia-mais-content">
                            ✅ Faço simulação<br>
@@ -2011,19 +2046,24 @@
                            ✅entrada em até 18x<br>
                            ✅Garantia de até 1 ano<br><br>
 
-                           22/23<br>
-                           Azul<br>
-                           Gasolina<br>
-                           Automático<br>
-                           8.000 Km<br>
-                           R$ 350.000,00<br><br>
+                           19/20<br>
+                           Branca<br>
+                           Flex<br>
+                           Manual<br>
+                           40.000 Km<br>
+                           R$ 65.000,00<br><br>
 
                            ✅Opcionais:<br>
-                           •Freios de Carbono-Cerâmica<br>
-                           •Suspensão Ativa<br>
-                           •Interior em Fibra de Carbono<br>
-                           •Head-Up Display<br>
-                           •Câmera 360
+                           •Air Bag<br>
+                           •Alarme<br>
+                           •Ar Condicionado<br>
+                           •Controle de Tração<br>
+                           •Direção Hidráulica<br>
+                           •Freios ABS<br>
+                           •Retrovisor Elétrico<br>
+                           •Trava Elétrica<br>
+                           •Vidro Elétrico<br>
+                           •Volante com Regulagem
                         </p>
                         <button class="leia-mais-button" data-target-id="desc-generic-15">
                             Leia mais...
@@ -2091,7 +2131,7 @@
         <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Onde nos Encontrar</h2>
         <div class="relative w-full map-container">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3738.991207865671!2d-54.60683458564539!3d-20.47352358632668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x948626e828d8b2e5%3A0x8f3c7e7b5e4c0a1a!2sAv.%20Bandeirantes%20%26%20Av.%20Salgado%20Filho%2C%20Amambai%2C%20Campo%20Grande%20-%20MS%2C%2079005-300!5e0!3m2!1spt-BR!2sbr!4v1678200000000!5m2!1spt-BR!2sbr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3738.991207865671!2d-54.60683458632668!3d-20.47352358632668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x948626e828d8b2e5%3A0x8f3c7e7b5e4c0a1a!2sAv.%20Bandeirantes%20%26%20Av.%20Salgado%20Filho%2C%20Amambai%2C%20Campo%20Grande%20-%20MS%2C%2079005-300!5e0!3m2!1spt-BR!2sbr!4v1678200000000!5m2!1spt-BR!2sbr"
                 width="100%"
                 height="100%"
                 style="border:0; position:absolute; top:0; left:0;"
@@ -2103,26 +2143,89 @@
         <p class="text-center text-gray-600 mt-4">Av. Bandeirantes & Av. Salgado Filho Amambai, Campo Grande - MS, 79005-300</p>
     </div>
     <div class="mt-8 max-w-4xl w-full bg-white rounded-xl shadow-lg overflow-hidden p-4 text-center">
-        <h2 class="text-2xl font-bold text-gray-800 mb-2">Nossos Clientes estão Satisfeitos!</h2>
+        <h2 class="text-2xl font-bold text-gray-800 mb-2">Depoimentos dos nossos Clientes</h2>
         <div class="carousel-container mb-4" id="testimonial-carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://raw.githubusercontent.com/Roteirospessoais/meuveiculonovo/refs/heads/main/1.png" alt="Depoimento 1" class="testimonial-carousel-image" />
+                <!-- Depoimento 1 - Patricia Araujo (Exemplo de depoimento 1) -->
+                <div class="carousel-item active testimonial-item">
+                    <img src="https://cdn.awsli.com.br/2297/2297081/arquivos/FB_IMG_1668555327941.jpg" alt="Patricia Araujo" class="testimonial-avatar" />
+                    <blockquote class="text-center">
+                        <p class="testimonial-quote">"Adoro os produtos de vocês"</p>
+                        <cite class="testimonial-cite">Patricia Araujo, <a target="_blank" href="https://instagram.com/12ppati?igshid=YmMyMTA2M2Y=" class="text-blue-500 hover:underline">@12ppati</a></cite>
+                        <div class="testimonial-rating">★★★★★</div>
+                    </blockquote>
                 </div>
-                <div class="carousel-item">
-                    <img src="https://raw.githubusercontent.com/Roteirospessoais/meuveiculonovo/refs/heads/main/2.png" alt="Depoimento 2" class="testimonial-carousel-image" />
+                <!-- Depoimento 2 - Paulo Talamini (Exemplo de depoimento 1) -->
+                <div class="carousel-item testimonial-item">
+                    <img src="https://cdn.awsli.com.br/2297/2297081/arquivos/FB_IMG_1668555529836.jpg" alt="Paulo Talamini" class="testimonial-avatar" />
+                    <blockquote class="text-center">
+                        <p class="testimonial-quote">"Excelente produtos e entrega super rápida!"</p>
+                        <cite class="testimonial-cite">Paulo Talamini,<a target="_blank" href="https://instagram.com/paulo_talamini?igshid=YmMyMTA2M2Y=" class="text-blue-500 hover:underline">@paulo_talamini</a></cite>
+                        <div class="testimonial-rating">★★★★★</div>
+                    </blockquote>
                 </div>
-                <div class="carousel-item">
-                    <img src="https://raw.githubusercontent.com/Roteirospessoais/meuveiculonovo/refs/heads/main/3.png" alt="Depoimento 3" class="testimonial-carousel-image" />
+                <!-- Depoimento 3 - Usuário 3 (Exemplo de depoimento 1) -->
+                <div class="carousel-item testimonial-item">
+                    <img src="https://cdn.awsli.com.br/2297/2297081/arquivos/depoimentos.png" alt="Usuário 3" class="testimonial-avatar" />
+                    <blockquote class="text-center">
+                        <p class="testimonial-quote">"Sem palavras pra descrever como eu amo essa marca."</p>
+                        <cite class="testimonial-cite">Usuário 3, <a target="_blank" href="https://instagram.com/" class="text-blue-500 hover:underline">@usuario3</a></cite>
+                        <div class="testimonial-rating">★★★★★</div>
+                    </blockquote>
                 </div>
-                <div class="carousel-item">
-                    <img src="https://raw.githubusercontent.com/Roteirospessoais/meuveiculonovo/refs/heads/main/4.png" alt="Depoimento 4" class="testimonial-carousel-image" />
+                <!-- Depoimento 4 - Eduarda Martins (Imagem 8.png) -->
+                <div class="carousel-item testimonial-item">
+                    <img src="https://raw.githubusercontent.com/Roteirospessoais/meuveiculonovo/refs/heads/main/8.png" alt="Eduarda Martins" class="testimonial-avatar" />
+                    <blockquote class="text-center">
+                        <p class="testimonial-quote">"Fiquei encantada com o atendimento e a qualidade do carro. Ficaram com tudo, resolvendo inclusive todo trâmite de documentos!"</p>
+                        <cite class="testimonial-cite">Eduarda Martins, Professora – Campo Grande/MS</cite>
+                        <div class="testimonial-rating">★★★★☆</div>
+                    </blockquote>
                 </div>
-                <div class="carousel-item">
-                    <img src="https://raw.githubusercontent.com/Roteirospessoais/meuveiculonovo/refs/heads/main/5.png" alt="Depoimento 5" class="testimonial-carousel-image" />
+                <!-- Depoimento 5 - Rafael Souza (Imagem 9.png) -->
+                <div class="carousel-item testimonial-item">
+                    <img src="https://raw.githubusercontent.com/Roteirospessoais/meuveiculonovo/refs/heads/main/9.png" alt="Rafael Souza" class="testimonial-avatar" />
+                    <blockquote class="text-center">
+                        <p class="testimonial-quote">"Um carro perfeito, de confiança. Superou minhas expectativas! Recomendo sem hesitar."</p>
+                        <cite class="testimonial-cite">Rafael Souza, Empreendedor – Campo Grande/MS</cite>
+                        <div class="testimonial-rating">★★★★★</div>
+                    </blockquote>
                 </div>
-                <div class="carousel-item">
-                    <img src="https://raw.githubusercontent.com/Roteirospessoais/meuveiculonovo/refs/heads/main/6.png" alt="Depoimento 6" class="testimonial-carousel-image" />
+                <!-- Depoimento 6 - Luiz Fernando (Imagem 10.png) -->
+                <div class="carousel-item testimonial-item">
+                    <img src="https://raw.githubusercontent.com/Roteirospessoais/meuveiculonovo/refs/heads/main/10.png" alt="Luiz Fernando" class="testimonial-avatar" />
+                    <blockquote class="text-center">
+                        <p class="testimonial-quote">"Realmente confiáveis! Me explicaram tudo, mostraram histórico e revisaram os detalhes."</p>
+                        <cite class="testimonial-cite">Luiz Fernando, Motoboy – Campo Grande/MS</cite>
+                        <div class="testimonial-rating">★★★★☆</div>
+                    </blockquote>
+                </div>
+                <!-- Depoimento 7 - Silmara Teles (Imagem 11.png) -->
+                <div class="carousel-item testimonial-item">
+                    <img src="https://raw.githubusercontent.com/Roteirospessoais/meuveiculonovo/refs/heads/main/11.png" alt="Silmara Teles" class="testimonial-avatar" />
+                    <blockquote class="text-center">
+                        <p class="testimonial-quote">"Muito obrigada! Transparência, atendimento humanizado e garantia. Fazem jus à fama."</p>
+                        <cite class="testimonial-cite">Silmara Teles, Enfermeira – Campo Grande/MS</cite>
+                        <div class="testimonial-rating">★★★★★</div>
+                    </blockquote>
+                </div>
+                <!-- Depoimento 8 - Carlos Henrique (Imagem 6.png - Depoimento Original do Exemplo 1) -->
+                <div class="carousel-item testimonial-item">
+                    <img src="https://raw.githubusercontent.com/Roteirospessoais/meuveiculonovo/refs/heads/main/6.png" alt="Carlos Henrique" class="testimonial-avatar" />
+                    <blockquote class="text-center">
+                        <p class="testimonial-quote">"Encontrei o carro dos meus sonhos com preço justo a atendimento de primeira!"</p>
+                        <cite class="testimonial-cite">Carlos Henrique, Bairro Coronel Antonino Campo Grande/MS</cite>
+                        <div class="testimonial-rating">★★★★★</div>
+                    </blockquote>
+                </div>
+                <!-- Depoimento 9 - Mariana Lopes (Imagem 7.png - Depoimento Original do Exemplo 2) -->
+                <div class="carousel-item testimonial-item">
+                    <img src="https://raw.githubusercontent.com/Roteirospessoais/meuveiculonovo/refs/heads/main/7.png" alt="Mariana Lopes" class="testimonial-avatar" />
+                    <blockquote class="text-center">
+                        <p class="testimonial-quote">"Negociação rápida, carro impecável e muita transparência. Recomendo de olhos fechados!"</p>
+                        <cite class="testimonial-cite">Mariana Lopes, Bairro Moreninhas Campo Grande/MS</cite>
+                        <div class="testimonial-rating">★★★★★</div>
+                    </blockquote>
                 </div>
             </div>
 
@@ -2133,6 +2236,9 @@
                 <li data-slide-to="3"></li>
                 <li data-slide-to="4"></li>
                 <li data-slide-to="5"></li>
+                <li data-slide-to="6"></li>
+                <li data-slide-to="7"></li>
+                <li data-slide-to="8"></li>
             </ol>
 
             <a class="carousel-control carousel-control-prev testimonial-carousel-control js-carousel-control" role="button" data-direction="prev" data-carousel-id="testimonial-carousel">
